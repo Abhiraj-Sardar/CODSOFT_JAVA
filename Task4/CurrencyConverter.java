@@ -50,7 +50,7 @@ class CurrencyConverter
         Scanner sc =new Scanner(System.in);
         do{
             System.out.println("Select Your Base Currency:\n1.USD for Us Dollar\n2.INR for Indian Rupees \n3.EUR for Euro\n4.CAD for Canada Dollar\n5.AUD for Australia Dollar\n6.JPY for Japan Yen");
-           
+            System.out.println("--------------------------------");
             String bc = sc.nextLine();
             bccpy=bc;
             
@@ -58,39 +58,48 @@ class CurrencyConverter
             cnt=1;
             if(ch.equals("usd"))
             {
+                 System.out.println("--------------------------------");
                 System.out.println("Enter Your Amount $");
                 bamt=sc.nextDouble();
+                
             }
             else if(ch.equals("inr"))
             {
+                 System.out.println("--------------------------------");
                 System.out.println("Enter Your Amount ₹");
                 bamt=sc.nextDouble();
             }
             else if(ch.equals("aud"))
             {
+                 System.out.println("--------------------------------");
                 System.out.println("Enter Your Amount $");
                 bamt=sc.nextDouble();
             }
             else if(ch.equals("cad"))
             {
-                System.out.println("Enter Your Amount $");
+                System.out.println("--------------------------------");
+                System.out.println("Enter Your Amount $:");
                 bamt=sc.nextDouble();
             }
             else if(ch.equals("eur"))
             {
+                 System.out.println("--------------------------------");
                 System.out.println("Enter Your Amount $");
                 bamt=sc.nextDouble();
             }
             else if(ch.equals("jpy"))
             {
+                 System.out.println("--------------------------------");
                 System.out.println("Enter Your Amount ¥");
                 bamt=sc.nextDouble();
             }
             else
             {
-                System.out.println("You may have selected wrong option");
+                 System.out.println("--------------------------------");
+                System.out.println("You may have selected wrong option....please type the country code.");
                 cnt=0;
             }
+            System.out.println("--------------------------------");
         }while(cnt==0);
         
        String tccpy=null;
@@ -98,19 +107,22 @@ class CurrencyConverter
         do{
             cnt=1;
             System.out.println("Select Target Currency:\n1.USD for Us Dollar\n2.INR for Indian Rupees \n3.EUR for Euro\n4.CAD for Canada Dollar\n5.AUD for Australia Dollar\n6.JPY for Japan Yen");
+            System.out.println("--------------------------------");
             String tc =sc.next();
             tc=tc.toLowerCase();
             tccpy=tc;
             String search = (bccpy.toUpperCase().concat("to")).concat(tc.toUpperCase());
-            System.out.println(search);
+            // System.out.println(search);
             conversion_value= currencyapi.get(search);
             if(tc.equals(bccpy))
             {
                 System.out.println("you are conversion is of same type...Please select different currency...");
+                 System.out.println("--------------------------------");
             }
             else if(!tc.equals("jpy") && !tc.equals("eur") && !tc.equals("usd") && !tc.equals("inr") && !tc.equals("cad") && !tc.equals("aud"))
             {
                 System.out.println("You may have selected wrong option");
+                 System.out.println("--------------------------------");
                 cnt=0;
             }
         }while(cnt==0);
@@ -128,6 +140,8 @@ class CurrencyConverter
         {
             sym="$";
         }
-        System.out.println(bccpy.toUpperCase()+" to "+tccpy.toUpperCase()+" Currency Rate: "+sym+result);
+        System.out.println("--------------------------------");
+        System.out.println(bccpy.toUpperCase()+" to "+tccpy.toUpperCase()+" Currency Rate: "+"\b"+sym+result);
+        System.out.println("--------------------------------");
     }
 }
